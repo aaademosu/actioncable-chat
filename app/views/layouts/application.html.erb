@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chatblog</title>
+
+    <%= action_cable_meta_tag %>
+    <%= csrf_meta_tags %>
+
+    <%#= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+  </head>
+
+  <body>
+
+	<%= render 'layouts/nav' %>
+
+	<% flash.each do |key, value| %>
+	    <div class="text-center <%= flash_class(key) %>">
+	      <%= value %>
+	    </div>
+	<% end %>
+
+	<div class="container" style="margin-top: 64px;">
+	  <%= yield %>
+	</div>
+
+  </body>
+  <%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application' %>
+</html>
